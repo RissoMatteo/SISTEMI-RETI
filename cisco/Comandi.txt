@@ -1,0 +1,35 @@
+2. ROUTING interVLAN
+Router(config)# interface fastethernet 0/0 = (router)
+Router(config-if)# no shutdown
+Router(config-if)# exit
+Router(config)# interface fastethernet 0/0.[numeroVlan]
+Router(config-subif)# encapsulation dot1Q [numeroVlan]
+Router(config-subif)# ip address [defaultgateway] [subnet_mask]
+Router(config-subif)# exit
+
+3.NAT
+Router(config)# interface serial 2/0 (porta che va all esterno)
+Router(config-if)# ip nat outside
+Router(config-if)# exit
+
+Router(config)# interface fastethernet 0/0 (porta che va all interno)
+Router(config-if)# ip nat inside
+Router(config-if)# exit
+
+
+4. ACL
+access-list [nvlan] deny any
+ip access-group [nvlan] in
+blocca l accesso a quella vlan
+
+
+
+
+
+
+
+
+
+
+dimmi 2 ip di router interni per questa rete 
+
